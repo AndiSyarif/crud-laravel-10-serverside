@@ -39,7 +39,7 @@
                     <a href="/" class="nav-link">Dashboard</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="/" class="nav-link">Barang</a>
+                    <a href="/barang" class="nav-link">Barang</a>
                 </li>
             </ul>
 

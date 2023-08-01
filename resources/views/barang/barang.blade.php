@@ -36,7 +36,8 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="exampleServerSide" class="table table-striped table-bordered table-hover text-center barang-table"
+                                <table id="exampleServerSide"
+                                    class="table table-striped table-bordered table-hover text-center barang-table"
                                     style="width: 100%">
                                     <thead>
                                         <tr>
@@ -46,7 +47,7 @@
                                             <th>Supplier</th>
                                             <th>Stock</th>
                                             <th>Price</th>
-                                            <th>Note</th>
+                                            {{-- <th>Note</th> --}}
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -102,10 +103,10 @@
                         data: 'price',
                         name: 'price'
                     },
-                    {
-                        data: 'note',
-                        name: 'note'
-                    },
+                    // {
+                    //     data: 'note',
+                    //     name: 'note'
+                    // },
                     {
                         data: 'action',
                         name: 'action',

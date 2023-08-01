@@ -16,8 +16,15 @@ class BarangFactory extends Factory
      */
     public function definition(): array
     {
+        $category = array('Elektronik', 'Makanan', 'Minuman', 'Alat', 'Software', 'Hardware');
+
         return [
-            //
+            'name' => fake()->unique()->name(),
+            'category' => $category[rand(0, 5)],
+            'supplier' => fake()->unique()->company(),
+            'stock' => rand(1, 500),
+            'price' => rand(100000, 5000000),
+            'note' => fake()->unique()->bs()
         ];
     }
 }
