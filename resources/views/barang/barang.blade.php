@@ -36,7 +36,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="example1" class="table table-striped table-bordered table-hover text-center"
+                                <table id="exampleServerSide" class="table table-striped table-bordered table-hover text-center barang-table"
                                     style="width: 100%">
                                     <thead>
                                         <tr>
@@ -51,33 +51,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($barang as $data)
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $data->name }}</td>
-                                                <td>{{ $data->category }}</td>
-                                                <td> {{ $data->supplier }}</td>
-                                                <td>{{ $data->stock }}</td>
-                                                <td>Rp. {{ number_format($data->price, 0) }}</td>
-                                                <td>{{ $data->note }}</td>
-                                                <td>
-                                                    <form class="d-inline" action="/barang/{{ $data->id_barang }}/edit"
-                                                        method="GET">
-                                                        <button type="submit" class="btn btn-success btn-sm mr-1">
-                                                            <i class="fa-solid fa-pen"></i> Edit
-                                                        </button>
-                                                    </form>
-                                                    <form class="d-inline" action="/barang/{{ $data->id_barang }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button type="submit" class="btn btn-danger btn-sm"
-                                                            id="btn-delete"><i class="fa-solid fa-trash-can"></i> Delete
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -90,5 +63,58 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(function() {
+
+            var table = $('.barang-table').DataTable({
+                processing: true,
+                responsive: true,
+                serverSide: true,
+                columnDefs: [{
+                        "className": "dt-center",
+                        "targets": "_all"
+                    },
+
+                ],
+                ajax: "{{ route('barang.index') }}",
+                columns: [{
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex'
+                    },
+                    {
+                        data: 'name',
+                        name: 'name'
+                    },
+                    {
+                        data: 'category',
+                        name: 'category'
+                    },
+                    {
+                        data: 'supplier',
+                        name: 'supplier'
+                    },
+                    {
+                        data: 'stock',
+                        name: 'stock'
+                    },
+                    {
+                        data: 'price',
+                        name: 'price'
+                    },
+                    {
+                        data: 'note',
+                        name: 'note'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    },
+                ]
+            });
+        });
+    </script>
 
 @endsection
