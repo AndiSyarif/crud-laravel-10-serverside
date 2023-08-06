@@ -35,6 +35,9 @@ run php artisan serve <br>
 open link at your browser
 http://127.0.0.1:8000
 
+## Demo Link
+https://crud-serverside.andisdev.tech/
+
 ## Screenshoot
 ![logo](https://github.com/AndiSyarif/crud-laravel-10-serverside/blob/main/public/assets/img/ss1.png)
 ![logo](https://github.com/AndiSyarif/crud-laravel-10-serverside/blob/main/public/assets/img/ss2.png)
