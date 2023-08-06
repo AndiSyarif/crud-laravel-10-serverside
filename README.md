@@ -23,7 +23,7 @@
 
 ## Installation
 
-Downlod or clone source code <br>
+Download or clone source code <br>
 create database laravel
 
 Install the dependencies and start the server.
